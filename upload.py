@@ -4,7 +4,6 @@ from poster.encode import multipart_encode
 from poster.streaminghttp import register_openers
 
 API_URL = 'http://www.imageshack.us/index.php'
-
 def yesno(x):
     if x:
         return 'yes'
@@ -19,7 +18,8 @@ def upload_file(filename, optsize=None,
                 ):
     register_openers()
     data = {'fileupload' :open(filename),
-            'xml':yesno(True)
+            'xml':yesno(True),
+            'rembar':yesno(remove_bar)
             }
     datagen, headers = multipart_encode(data)
 
